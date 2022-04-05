@@ -1,5 +1,5 @@
 import { Component } from "react";
-import "./App.css";
+import CardList from "./components/card-list/card-list.component";
 
 class App extends Component {
   constructor() {
@@ -25,22 +25,22 @@ class App extends Component {
       );
   }
   onSearchChange = (event) => {
-            console.log("starting array:- ", this.state.monsters);
-            const searchField = event.target.value.toLocaleLowerCase();
-            this.setState(
-              () => {
-                return { searchField };
-              },
-              () => {
-                console.log("Ending Array Status:-", this.state.monsters); //latest state check
-              }
-            );
-          }
+    console.log("starting array:- ", this.state.monsters);
+    const searchField = event.target.value.toLocaleLowerCase();
+    this.setState(
+      () => {
+        return { searchField };
+      },
+      () => {
+        console.log("Ending Array Status:-", this.state.monsters); //latest state check
+      }
+    );
+  };
 
   render() {
     //object destructuring ES6 new feature
-    const {monsters, searchField} = this.state;
-    const {onSearchChange} = this;
+    const { monsters, searchField } = this.state;
+    const { onSearchChange } = this;
 
     const filerByMonsterName = monsters.filter((monster) => {
       return monster.name.toLocaleLowerCase().includes(searchField);
@@ -52,15 +52,10 @@ class App extends Component {
           className="search"
           type="search"
           placeholder="search monsters"
-          onChange={ onSearchChange }
+          onChange={onSearchChange}
         />
-        {filerByMonsterName.map((monster) => {
-          return (
-            <div key={monster.id}>
-              <h1>{monster.name}</h1>
-            </div>
-          );
-        })}
+
+        <CardList />
       </div>
     );
   }
