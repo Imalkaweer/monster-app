@@ -17,9 +17,6 @@ class App extends Component {
         this.setState(
           () => {
             return { monsters: user };
-          },
-          () => {
-            console.log("current State:- ", this.state); //check the current state of state object
           }
         )
       );
@@ -30,9 +27,6 @@ class App extends Component {
     this.setState(
       () => {
         return { searchField };
-      },
-      () => {
-        console.log("Ending Array Status:-", this.state.monsters); //latest state check
       }
     );
   };
@@ -55,7 +49,7 @@ class App extends Component {
           onChange={onSearchChange}
         />
 
-        <CardList />
+        <CardList monsters={filerByMonsterName}/>
       </div>
     );
   }
