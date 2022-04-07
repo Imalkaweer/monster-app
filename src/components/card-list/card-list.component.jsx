@@ -10,14 +10,15 @@ class CardList extends Component {
     return (
       <div className="card-list">
         {monsters.map((monster) => {
+          const {id, name, email} = monster;
           return (
-            <div className="card-container" key={monster.id}>
+            <div className="card-container" key={id}>
               <img
-                alt={`monster ${monster.name}`}
-                src={`https://robohash.org/${monster.id}/set=set2&size=180x180`}
+                alt={`monster ${name}`}
+                src={`https://robohash.org/${id}/set=set2&size=180x180`}
               />
-              <h1>{monster.name}</h1>
-              <p>{monster.email}</p>
+              <h1>{name}</h1>
+              <p>{email}</p>
             </div>
           );
         })}
