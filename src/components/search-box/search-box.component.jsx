@@ -1,8 +1,7 @@
 import "./search-box.styles.css";
 
-const SearchBox = (props) => {
-  const { className, type, placeholder, onChangeHandler } = props;
-  return (
+const SearchBox = ({ className, type, placeholder, onChangeHandler }) => 
+   (
     <input
       className={`search-box ${className}`}
       type={type}
@@ -10,6 +9,6 @@ const SearchBox = (props) => {
       onChange={onChangeHandler}
     />
   );
-};
+
 
 export default SearchBox;
