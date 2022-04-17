@@ -3,8 +3,6 @@ import './search-box.styles.css';
 
 class SearchBox extends Component {
   render() {
-    console.log("render search box!");
-    console.log("props in search-box", this.props);
     const { className, type, placeholder, onChangeHandler } = this.props;
     return (
       <input
